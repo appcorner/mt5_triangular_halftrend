@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "mt5-triangular-halftrend"
+version = "0.1.0"
+description = ""
+authors = ["appcorner"]
+readme = "README.md"
+packages = [{include = "mt5_triangular_halftrend"}]
+
+[tool.poetry.scripts]
+build = "poetry run pyinstaller triangular_halftrend.py --collect-submodules application --onefile --name triangular_halftrend"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.12"
+metatrader5 = "^5.0.45"
+pandas = "^2.0.1"
+pandas-ta = "^0.3.14b0"
+mplfinance = "^0.12.9b7"
+requests = "^2.30.0"
+
+[tool.poetry.group.dev.dependencies]
+pyinstaller = "^5.11.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
