@@ -39,19 +39,24 @@ open forex order for Triangular Arbitrage
     signal_index = -2
     magic_number = 999111
 
-    symbols = XAUUSD, AUDUSD, GBPUSD, USDJPY, EURJPY, GBPAUD, AUDCAD, CADJPY, CADCHF, NZDJPY
+    symbol = USDJPY
+    triangle_symbols = EURUSD, EURJPY
     lot = 0.02
     deviation = 20
+
 
     atrlen = 100
     amplitude = 3
     channel_deviation = 2
 
     ;# check สัญญาณ macd ก่อนเปิด order default = on
-    ; confirm_macd = off
+    confirm_macd = off
 
     ;# เพิ่มการเปิด order ด้วยสัญญาน macd cross (MACD ตัด MACDs) default = off
-    ; macd_cross = on
+    macd_cross = off
+
+    ;# เปิด order เมื่อเกิดสัญญาน จากทั้งกลุ่ม default = off
+    triangular_signal = off
 
     martingale_mode = on
     martingale_factor = 1.0
@@ -61,10 +66,13 @@ open forex order for Triangular Arbitrage
     ;martingale_max = 8
 
     auto_tpsl = off
-    sl = 150
-    tp = 300
+    sl = 0
+    tp = 0
     ;# สามารถกำหนดค่าเป็นเปอร์เซ็นต์ได้
     ;sl = 0.7%
     ;tp = 1.2%
 
-    trailing_stop = on
+    ;# ปิด order เมื่อ profit ของกลุ่ม (USDJPY+EURUSD+EURJPY) ที่เปิด Order พร้อมกัน มากกว่า tp_amount
+    tp_amount = 6
+
+    trailing_stop = off
